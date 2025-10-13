@@ -78,7 +78,7 @@ Developed by **Rushab** — built for cybersecurity professionals, SOC analysts,
 
 ## 📄 License
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE)) file for details.
 
 ---
 
