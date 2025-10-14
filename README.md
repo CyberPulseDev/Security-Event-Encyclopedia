@@ -36,7 +36,7 @@ The **Security Event Encyclopedia** is a secure, desktop-based cybersecurity too
 ## 💾 Installation
 
 ### 1. Download
-Go to the **[Releases](../../releases)** section of this repository and download the latest **SecurityEventEncyclopedia_Setup.exe** installer (COMING SOON).
+(COMING SOON).
 
 ### 2. Run the Installer
 - Double-click the downloaded `.exe` file.  
