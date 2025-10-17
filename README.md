@@ -50,8 +50,6 @@ Download the following three files from the repository’s **Releases** section:
 >
 > Verify it yourself here:
 > 🔗 [VirusTotal Report](https://www.virustotal.com/gui/file/5e28c1625220a8524eb20c910cfa59d015065cca51c171f32e7088dd7636b8d1/detection)
->
-> The source code and Python script are open and safe to inspect.
 
 ### 2. Run the Application
 
