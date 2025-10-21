@@ -49,8 +49,10 @@ Download the following **four** files from the repository’s **Releases** secti
 * `event_correlation_map.json` *(new placeholder for correlation feature)*
 
 > ⚠️ **VirusTotal Notice**
-> Some antivirus tools may falsely flag the executable due to **PyInstaller** packaging.
-> Verify independently here:
+> Some antivirus tools may flag the executable as potentially unsafe.
+> This is a **false positive** caused by **PyInstaller**, which packages Python scripts into executables.
+>
+> Verify it yourself here:
 > 🔗 [VirusTotal Report](https://www.virustotal.com/gui/file/5e28c1625220a8524eb20c910cfa59d015065cca51c171f32e7088dd7636b8d1/detection)
 
 ### 2. Run the Application
