@@ -1,36 +1,39 @@
 # 🧠 Security Event Encyclopedia
 
-[![Version](https://img.shields.io/badge/Version-1.0.0-blue.svg)](#)
+[![Version](https://img.shields.io/badge/Version-2.0.0-blue.svg)](#)
 [![Security](https://img.shields.io/badge/Security-Hardened-orange.svg)](#-security-highlights)
 [![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey.svg)](#)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-The **Security Event Encyclopedia** is a secure, desktop-based cybersecurity tool that centralizes event IDs, descriptions, and response guidance from multiple platforms.
-It helps SOC analysts and security engineers investigate incidents faster with **MITRE mapping**, **encrypted notes**, **safe imports**, **validated URLs**, and **robust data protection**.
+The **Security Event Encyclopedia** is a secure, desktop-based cybersecurity intelligence tool that centralizes event IDs, response guidance, and MITRE mappings from multiple platforms.
+It empowers **SOC Analysts, Threat Hunters, and Security Engineers** to investigate incidents faster through intelligent event correlation, real-time MITRE syncing, and collaborative knowledge management.
 
 ---
 
 ## 🚀 Key Features
 
-* 🔎 **Centralized Event Knowledge Base** — Access details for Windows, Sysmon, SharePoint, SQL Server, Exchange, Linux, and Azure events.
-* 🧩 **MITRE ATT&CK Mapping** — Each event includes corresponding Tactics and Techniques for quick reference.
-* 🗝️ **Encrypted Analyst Notes** — Sensitive notes are stored securely to protect investigation data.
-* 🌐 **Safe URL Validation** — Prompts user confirmation before opening any external link.
-* 🧱 **Secure Import/Export** — Import events safely with file size checks; export to JSON or CSV.
-* 🏷️ **IOC Tagging & Advanced Search** — Tag, filter, and search events efficiently.
-* 🧾 **Custom Events Management** — Add, edit, and organize your own events with protection against modifying built-in ones.
+* 🔎 **Centralized Event Knowledge Base** — Unified access to Windows, Sysmon, SharePoint, SQL Server, Exchange, Linux, and Azure event IDs.
+* 🧩 **MITRE ATT&CK Mapping** — Each event automatically linked with tactics and techniques for rapid triage.
+* ⚙️ **Auto MITRE Sync (New)** — Automatically updates the encyclopedia with the latest MITRE ATT&CK data through `mitre_sync.py`.
+* 🔗 **Correlation With Common Event IDs (New)** — Dynamically map related events across platforms using the built-in correlation engine (`event_correlation_map.json`).
+* 🧠 **Knowledge Management & Collaboration (New)** — Share notes, mark key insights as “Reference,” and access a centralized **Shared Knowledge Hub** for team learning.
+* 🗝️ **Encrypted Analyst Notes** — Securely store and retrieve investigation data with protected access.
+* 🌐 **Safe URL Validation** — Every link requires user confirmation before opening in a browser.
+* 🧱 **Secure Import/Export** — Safely import or export events with validation and file-size checks.
+* 🏷️ **IOC Tagging & Advanced Search** — Tag, filter, and cross-search by keywords, MITRE Tactics, Techniques, or Severity.
+* 🧾 **Custom Events Management** — Add, edit, and organize your own events while preserving the built-in library.
 
 ---
 
 ## 🛡️ Security Highlights
 
-| Category                  | Finding               | Risk Rating | Status                                     |
-| ------------------------- | --------------------- | ----------- | ------------------------------------------ |
-| Web Link & External Calls | Insecure URL Handling | Medium      | ✅ Mitigated with validation & confirmation |
-| Database Security         | Unencrypted Database  | Medium      | ✅ Notes encryption implemented             |
-| File Handling             | Large File Imports    | Low         | ✅ File size checks added                   |
-| Input Validation          | Unrestricted Length   | Low         | ✅ Field length validation enforced         |
-| Injection Risks           | SQL Injection         | Very Low    | ✅ Parameterized queries in use             |
+| Category                  | Finding                   | Risk Rating | Status                                  |
+| ------------------------- | ------------------------- | ----------- | --------------------------------------- |
+| Web Link & External Calls | Insecure URL Handling     | Medium      | ✅ Validated with confirmation prompt    |
+| Database Security         | Unencrypted Database      | Medium      | ✅ Encrypted notes storage implemented   |
+| File Handling             | Large File Imports        | Low         | ✅ File-size check added                 |
+| Input Validation          | Unrestricted Field Length | Low         | ✅ Field length validation enforced      |
+| Injection Risks           | SQL Injection Possibility | Very Low    | ✅ Parameterized queries used throughout |
 
 ---
 
@@ -38,30 +41,27 @@ It helps SOC analysts and security engineers investigate incidents faster with *
 
 ### 1. Download
 
-Download the following three files from the repository’s **Releases** section:
+Download the following **four** files from the repository’s **Releases** section:
 
 * `Security Event Encyclopedia.exe`
 * `custom_events.json`
 * `security_events.db`
+* `event_correlation_map.json` *(new placeholder for correlation feature)*
 
 > ⚠️ **VirusTotal Notice**
-> Some antivirus tools may flag the executable as potentially unsafe.
-> This is a **false positive** caused by **PyInstaller**, which packages Python scripts into executables.
->
-> Verify it yourself here:
+> Some antivirus tools may falsely flag the executable due to **PyInstaller** packaging.
+> Verify independently here:
 > 🔗 [VirusTotal Report](https://www.virustotal.com/gui/file/5e28c1625220a8524eb20c910cfa59d015065cca51c171f32e7088dd7636b8d1/detection)
-> 
-> If you would like to review or inspect the original Python source code, please feel free to reach out — the full script can be shared upon request for transparency and verification purposes.
 
 ### 2. Run the Application
 
-Place all three files in the **same directory** and double-click:
+Place all files in the **same directory**, then run:
 
 ```
 Security Event Encyclopedia.exe
 ```
 
-No installation is required — it runs as a portable application.
+No installation required — portable, ready-to-use.
 
 ---
 
@@ -69,81 +69,83 @@ No installation is required — it runs as a portable application.
 
 ### 🧱 `Security Event Encyclopedia.exe`
 
-This is the **main application executable**, built from the Python source using **Tkinter** for the GUI and **PyInstaller** for packaging.
-It serves as the graphical interface that allows users to:
+The main application executable (Tkinter GUI + PyInstaller) that lets you:
 
-* View and search security events by ID, category, platform, or severity.
-* Add, edit, or delete **custom events**.
-* Record and encrypt analyst notes.
-* Import and export event databases in JSON or CSV format.
-* Open validated external reference links (with confirmation prompt).
+* View, search, and filter events.
+* Add / edit custom events.
+* Add encrypted analyst notes.
+* Sync MITRE data automatically.
+* Correlate related events visually.
+* Import / export secure JSON data.
 
 ---
 
 ### 📘 `custom_events.json`
 
-A **JSON file** that stores user-defined events added through the application.
-Each entry includes details such as event ID, title, description, severity, MITRE ATT&CK mapping, and response guidance.
+Stores all **user-defined** events added via the GUI.
 
-**Example structure:**
+**Purpose**
 
-```json
-{
-  "event_id": "25001",
-  "event_title": "Operation Copy - Copy item to another Exchange mailbox folder",
-  "description": "Copies a mailbox item within the mailbox...",
-  "severity": "Low",
-  "category": "Mailbox Operations",
-  "platform": "Exchange",
-  "response_guidance": "Validate the action aligns with user activity...",
-  "reference_links": [
-    "https://learn.microsoft.com/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance"
-  ],
-  "mitre_tactic": "Collection",
-  "mitre_technique": "T1114 - Email Collection",
-  "tags": "Mailbox Operations"
-}
-```
+* Retains and syncs user-enriched data.
+* Automatically updates with the SQLite database.
 
-**Purpose:**
+---
 
-* Retains all **custom and user-enriched events** added through the GUI.
-* Synchronizes automatically with `security_events.db` when the app starts or exits.
-* Makes user-created data portable between systems.
+### 🔗 `event_correlation_map.json` — *(New Feature)*
+
+A lightweight JSON mapping file used by the correlation engine.
+
+**Functionality**
+
+* Tracks relationships between events (e.g., Windows 4625 ↔ Sysmon 3).
+* Automatically created if missing.
+* Managed entirely through the GUI.
 
 ---
 
 ### 🗄️ `security_events.db`
 
-A **SQLite database** used by the application to store all security event data — both built-in and user-defined.
+SQLite database for all built-in and custom events.
 
-**Contains the following tables:**
+**Contains**
 
-* `security_events` → Stores event metadata (IDs, titles, severities, categories, platforms, MITRE mappings, tags, etc.).
-* `user_notes` → Stores analyst comments or findings linked to specific events.
-
-**Key Functions:**
-
-* Enables instant searching and filtering across multiple parameters.
-* Prevents duplication of event entries.
-* Supports automatic saving and updating of edited data.
-* Ensures persistent and structured data storage for analysts.
+* `security_events` — core event metadata
+* `user_notes` — analyst collaboration hub
+* `event_correlations` — linked relationships (New)
 
 ---
 
-## 🧠 How They Work Together
+## 🧠 Feature Details
 
-| Component                         | Description        | Function                                      |
-| --------------------------------- | ------------------ | --------------------------------------------- |
-| `Security Event Encyclopedia.exe` | Main program (GUI) | Loads, manages, and visualizes event data     |
-| `security_events.db`              | SQLite Database    | Stores all event data and analyst notes       |
-| `custom_events.json`              | JSON File          | Keeps user-created events for reimport/export |
+### 🔗 1.3  Correlation With Common Event IDs
 
-**Workflow Summary:**
+Automatically link related events across platforms.
+SOC analysts can discover chains of activity (e.g., a failed Windows logon followed by a Sysmon process spawn).
+Managed through the “Related Events” panel and saved to `event_correlation_map.json`.
 
-1. When the application launches, it loads all built-in events into the database.
-2. It then reads `custom_events.json` to add any user-defined events.
-3. Any changes (additions, edits, or deletions) are written back to both the database and JSON file.
+---
+
+### 🧠 4  Knowledge Management & Collaboration
+
+Collaborate securely through in-app notes and the **Shared Knowledge Hub**.
+Analysts can:
+
+* Add contextual notes with name and severity.
+* Pin important findings as “Reference Notes.”
+* Filter by analyst or keyword.
+* View top referenced events for cross-training and incident review.
+
+---
+
+### ⚙️ 5.2  Auto MITRE Sync
+
+Leverages the `mitre_sync.py` module to pull the latest MITRE ATT&CK Tactics & Techniques and update the database automatically.
+
+**Highlights**
+
+* Accessible via `Tools → Auto MITRE Sync`.
+* Progress bar and status messages display real-time sync updates.
+* Ensures all events stay aligned with the latest MITRE framework.
 
 ---
 
@@ -152,34 +154,28 @@ A **SQLite database** used by the application to store all security event data �
 ```mermaid
 flowchart TD
     A[Security Event Encyclopedia.exe] -->|Reads & Writes| B[(security_events.db)]
-    A -->|Loads & Syncs| C[custom_events.json]
-    B -->|Stores| D[Built-in Events + Custom Events + Notes]
-    C -->|Contains| E[User-Defined Custom Events]
-    A -->|User Interface| F[GUI / Event Viewer / Editor]
-    F -->|User Actions| A
+    A -->|Syncs| C[custom_events.json]
+    A -->|Maps Relations| D[event_correlation_map.json]
+    A -->|Auto Updates| E[mitre_sync.py]
+    B -->|Stores| F[Built-in + Custom + Notes + Correlations]
+    A -->|User Interface| G[GUI / Knowledge Hub / Correlation View]
     style A fill:#e1f5fe,stroke:#0288d1,stroke-width:2px
     style B fill:#e8f5e9,stroke:#43a047,stroke-width:2px
     style C fill:#fff3e0,stroke:#fb8c00,stroke-width:2px
-    style F fill:#f3e5f5,stroke:#8e24aa,stroke-width:2px
+    style D fill:#f3e5f5,stroke:#8e24aa,stroke-width:2px
+    style E fill:#f0f4c3,stroke:#afb42b,stroke-width:2px
 ```
-
-**Explanation:**
-
-* The **.exe** serves as the controller and interface.
-* **security_events.db** acts as the structured backend database.
-* **custom_events.json** keeps user-created events portable between sessions.
-* All three interact seamlessly to maintain data persistence and security integrity.
 
 ---
 
 ## 🧭 Usage Guide
 
-1. **Search Events:** Use keywords or event IDs in the search bar.
-2. **Filter Results:** Apply filters by platform, severity, MITRE tactic, or technique.
-3. **View Details:** Click any event to view detailed description, guidance, and references.
-4. **Add New Event:** Use “Add New Event” to define your custom entries.
-5. **Add Secure Notes:** Document analyst observations tied to events.
-6. **Export Data:** Export all events to JSON or CSV for backup or sharing.
+1. **Search Events:** Enter keywords or event IDs.
+2. **Filter Results:** Filter by platform, severity, or MITRE technique.
+3. **View Correlations:** Open “Related Events” to see cross-platform links.
+4. **Add Notes:** Document findings and pin critical observations.
+5. **Auto MITRE Sync:** Keep the encyclopedia updated with one click.
+6. **Export Data:** Save all records to JSON or CSV for reporting.
 
 ---
 
@@ -197,7 +193,7 @@ flowchart TD
 
 ## 👨‍💻 Developer
 
-Developed by **Rushab** — built for cybersecurity professionals, SOC analysts, and incident responders seeking a secure, all-in-one event reference companion.
+Developed by **Rushab U.** — for SOC Analysts and Cybersecurity Professionals seeking a secure, modern, and collaborative event analysis framework.
 
 ---
 
@@ -214,5 +210,3 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 <img width="1919" height="1031" alt="image" src="https://github.com/user-attachments/assets/3bd2e6cf-64aa-4d72-b37e-7b56724052ff" />
 <img width="1916" height="1024" alt="image" src="https://github.com/user-attachments/assets/6000ea32-3d8e-41c3-880d-fc43737789d4" />
 <img width="1917" height="1028" alt="image" src="https://github.com/user-attachments/assets/07c56492-80f2-4ae5-b70c-17844df9785a" />
-
----
