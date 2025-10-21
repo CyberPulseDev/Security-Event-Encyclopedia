@@ -119,7 +119,7 @@ SQLite database for all built-in and custom events.
 
 ## 🧠 Feature Details
 
-### 🔗 1.3  Correlation With Common Event IDs
+### 🔗 Correlation With Common Event IDs (NEW)
 
 Automatically link related events across platforms.
 SOC analysts can discover chains of activity (e.g., a failed Windows logon followed by a Sysmon process spawn).
@@ -127,7 +127,7 @@ Managed through the “Related Events” panel and saved to `event_correlation_m
 
 ---
 
-### 🧠 4  Knowledge Management & Collaboration
+### 🧠 Knowledge Management & Collaboration (NEW)
 
 Collaborate securely through in-app notes and the **Shared Knowledge Hub**.
 Analysts can:
@@ -139,7 +139,7 @@ Analysts can:
 
 ---
 
-### ⚙️ 5.2  Auto MITRE Sync
+### ⚙️ Auto MITRE Sync (NEW)
 
 Leverages the `mitre_sync.py` module to pull the latest MITRE ATT&CK Tactics & Techniques and update the database automatically.
 
