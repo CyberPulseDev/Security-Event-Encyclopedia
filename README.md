@@ -51,7 +51,9 @@ Download the following **four** files from the repository’s **Releases** secti
 > ⚠️ **VirusTotal Notice**
 > Some antivirus tools may flag the executable as potentially unsafe.
 > This is a **false positive** caused by **PyInstaller**, which packages Python scripts into executables.
->
+> 
+> If you would like to review or inspect the original Python source code, please feel free to reach out - the full script can be shared upon request for transparency and verification purposes.
+> 
 > Verify it yourself here:
 > 🔗 [VirusTotal Report](https://www.virustotal.com/gui/file/5e28c1625220a8524eb20c910cfa59d015065cca51c171f32e7088dd7636b8d1/detection)
 
