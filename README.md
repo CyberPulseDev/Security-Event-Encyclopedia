@@ -53,7 +53,7 @@ Download the following **four** files from the repository’s **Releases** secti
 > This is a **false positive** caused by **PyInstaller**, which packages Python scripts into executables.
 >
 > Verify it yourself here:
-> 🔗 [VirusTotal Report](https://www.virustotal.com/gui/file/5e28c1625220a8524eb20c910cfa59d015065cca51c171f32e7088dd7636b8d1/detection)
+> 🔗 [VirusTotal Report](https://www.virustotal.com/gui/file/e9def9add1808f824bff638430fedfbb2eba09278ae53532b48e9b998ffd1410)
 > 
 > If you would like to review or inspect the original Python source code, please feel free to reach out - the full script can be shared upon request for transparency and verification purposes.
 
